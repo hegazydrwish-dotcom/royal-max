@@ -203,5 +203,70 @@ document.getElementById('orderForm').addEventListener('submit', function (event)
   window.open(`https://wa.me/201025141193?text=${message}`, '_blank', 'noopener');
 });
 </script>
+<style>
+.royal-slider {
+  width: 92%;
+  max-width: 1000px;
+  margin: 35px auto;
+  text-align: center;
+  overflow: hidden;
+  border: 2px solid #d4a62a;
+  border-radius: 18px;
+  box-shadow: 0 0 20px #b88b24;
+}
+.royal-slider img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #07130e;
+}
+.royal-dots {
+  padding: 12px;
+  background: #07130e;
+}
+.royal-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  border-radius: 50%;
+  background: #777;
+}
+.royal-dots span.active {
+  background: #e5b83d;
+}
+</style>
 
+<section class="royal-slider">
+  <img id="royalSlide" src="slide-1.jpg" alt="Royal Max">
+  <div class="royal-dots" id="royalDots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</section>
+
+<script>
+const royalImages = [
+  "slide-1.jpg",
+  "slide-2.jpg",
+  "slide-3.jpg",
+  "slide-4.jpg"
+];
+
+let royalIndex = 0;
+
+setInterval(() => {
+  royalIndex = (royalIndex + 1) % royalImages.length;
+  document.getElementById("royalSlide").src =
+    royalImages[royalIndex];
+
+  document.querySelectorAll("#royalDots span")
+    .forEach((dot, i) => {
+      dot.classList.toggle("active", i === royalIndex);
+    });
+}, 3000);
+</script>
 </body></html>
