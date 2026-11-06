@@ -275,7 +275,7 @@ document.getElementById('orderForm').addEventListener('submit', function (event)
   const total = Number(quantity) * 1500;
   const message = `مرحبًا، أريد طلب Royal Max.%0Aالاسم: ${encodeURIComponent(name)}%0Aالهاتف: ${encodeURIComponent(phone)}%0Aالعنوان: ${encodeURIComponent(address)}%0Aالكمية: ${quantity}%0Aالإجمالي المبدئي: ${total} جنيه (قبل تأكيد التوصيل).`;
   window.open(`https://wa.me/201025141193?text=${message}`, '_blank', 'noopener');
-});
+});document.querySelector('main').appendChild(document.getElementById('order'));
 </script>
 <style>
 .royal-slider {
